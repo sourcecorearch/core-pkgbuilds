@@ -1,4 +1,4 @@
-# Maintainer: Erik Dubois <erik.dubois@gmail.com>
+# Maintainer: m4teo.dev <m4teo.dev@gmail.com>
 pkgname=core-calamares-config
 _destname1="/etc"
 pkgver=1.1
@@ -9,7 +9,6 @@ url="https://github.com/sourcecorearch"
 license=('GPL3')
 makedepends=('git')
 depends=()
-#conflicts=('alci-calamares-config-dev' 'alci-calamares-config-pure' 'alci-calamares-config-btrfs')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${pkgname}::"git+${url}/${pkgname}")
