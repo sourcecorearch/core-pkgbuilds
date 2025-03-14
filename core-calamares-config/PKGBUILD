@@ -1,9 +1,9 @@
 # Maintainer: m4teo.dev <m4teo.dev@gmail.com>
 pkgname=core-calamares-config
 _destname1="/etc"
-pkgver=1.1
-pkgrel=01
-pkgdesc="calamares for plasma"
+pkgver=1.2
+pkgrel=02
+pkgdesc="calamares for archlinux"
 arch=('any')
 url="https://github.com/sourcecorearch"
 license=('GPL3')
