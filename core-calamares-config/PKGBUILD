@@ -1,9 +1,10 @@
 # Maintainer: m4teo.dev <m4teo.dev@gmail.com>
+
 pkgname=core-calamares-config
 _destname1="/etc"
-pkgver=1.2
-pkgrel=03
-pkgdesc="calamares for archlinux"
+pkgver=1.3
+pkgrel=01
+pkgdesc="calamares config for archlinux plasma lite and polaris"
 arch=('any')
 url="https://github.com/sourcecorearch"
 license=('GPL3')
@@ -13,6 +14,7 @@ provides=("${pkgname}")
 options=(!strip !emptydirs)
 source=(${pkgname}::"git+${url}/${pkgname}")
 sha256sums=('SKIP')
+
 package() {
 	install -dm755 ${pkgdir}${_destname1}
 	cp -r ${srcdir}/${pkgname}${_destname1}/* ${pkgdir}${_destname1}
