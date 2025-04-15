@@ -5,7 +5,7 @@
 
 pkgname=core-calamares
 _pkgname=calamares
-pkgver=3.3.15.250221
+pkgver=3.3.15.26
 #_pkgver=3.3.12
 _replacethisversion=3.3.14
 pkgrel=01
@@ -60,7 +60,7 @@ source=($_pkgname::git+https://github.com/calamares/calamares#commit=$_commit
 	"49-nopasswd-calamares.rules")
 
 sha256sums=('e06f8d5d185120ce3c02ea94137eb51e84a76bb8f5b09be7e9f6e9129c0f81af'
-            'd6a5ce002c99586dfa0cb8621cad631f148dfd0d6d234c31643a63c585c546ee'
+            'SKIP'
             'c176b28007bd1c1f23d8dbb2c936fa54d0c01bacfb67290ddad597606c129df3'
             '56d85ff6bf860b9559b8c9f997ad9b1002f3fccc782073760eca505e3bddd176')
 
