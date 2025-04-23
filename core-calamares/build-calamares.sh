@@ -1,6 +1,6 @@
 #!/bin/bash
 
-destination1=$HOME"/core-linux/repo/"
+destination1=$HOME"/core_local/x86_64"
 
 destiny=$destination1
 
