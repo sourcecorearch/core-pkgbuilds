@@ -1,7 +1,7 @@
 # Maintainer: m4teo.dev <m4teo.dev>
 
 pkgname=core-wallpapers
-pkgver=1.0
+pkgver=r2.07a9da9
 pkgrel=1
 pkgdesc="EosOS default wallpaper"
 arch=('any')
