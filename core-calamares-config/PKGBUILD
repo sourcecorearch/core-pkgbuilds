@@ -2,9 +2,9 @@
 
 pkgname=core-calamares-config
 _destname1="/etc"
-pkgver=1.4
-pkgrel=02
-pkgdesc="calamares config for archlinux plasma lite and polaris"
+pkgver=1.5
+pkgrel=03
+pkgdesc="calamares config for archlinux plasma"
 arch=('any')
 url="https://github.com/sourcecorearch"
 license=('GPL3')
