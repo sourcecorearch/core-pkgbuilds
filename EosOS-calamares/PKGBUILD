@@ -6,7 +6,7 @@
 
 pkgname=calamares
 _pkgname=calamares
-pkgver=3.3.14.r46.g21ea80352
+pkgver=3.3.14.r46.g21ea803
 pkgrel=1
 _commit=21ea803
 pkgdesc='Distribution-independent installer framework'
