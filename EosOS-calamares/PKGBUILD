@@ -6,13 +6,13 @@
 
 pkgname=calamares
 _pkgname=calamares
-pkgver=3.3.15.r25.g1b00e63c4
+pkgver=3.3.15.r26.g274996f7c8
 pkgrel=1
-_commit=1b00e63c4ba170d4633be1f6c20145fda47f6761
+_commit=274996f7c8
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 conflicts=('core-calamares')
-url="github.com/sourcecorearch/calamares/"
+url="https://codeberg.org/Calamares/calamares"
 license=('GPL' 'LGPL')
 depends=(
   'boost-libs'
@@ -54,7 +54,7 @@ makedepends=(
   'qt6-tools'
 )
 
-source=("${_pkgname}::git+https://github.com/sourcecorearch/calamares.git#commit=${_commit}" \
+source=("${_pkgname}::git+https://codeberg.org/Calamares/calamares.git#commit=$_commit" \
         "calamares.desktop" \
         "calamares_polkit" \
         "49-nopasswd-calamares.rules")
