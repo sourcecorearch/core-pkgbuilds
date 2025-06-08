@@ -8,24 +8,58 @@ pkgname=calamares
 _pkgname=calamares
 pkgver=3.3.14.r46.g21ea80352
 pkgrel=1
-_commit=21ea803527735cfaf54fa6059e71d1ef65004864
+_commit=21ea803
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
-license=(GPL)
-conflicts=('core-calamares' 'eosos-calamares')
-url="https://github.com/calamares/calamares/"
+conflicts=('core-calamares')
+url="https://github.com/calamares/calamares"
 license=('GPL' 'LGPL')
-depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'solid' 'yaml-cpp' 'kpmcore'
-  'boost-libs' 'ckbcomp' 'hwinfo' 'qt6-svg' 'polkit-qt6'
-  'squashfs-tools' 'libpwquality' 'python' 'python-distutils-extra')
-makedepends=('extra-cmake-modules' 'qt6-tools' 'qt6-translations' 'git' 'boost')
+depends=(
+  'boost-libs'
+  'dmidecode'
+  'gptfdisk'
+  'hwinfo'
+  'kconfig'
+  'kcoreaddons'
+  'kcrash'
+  'kiconthemes'
+  'ki18n'
+  'kparts'
+  'kpmcore'
+  'kservice'
+  'kwidgetsaddons'
+  'mkinitcpio-openswap'
+  'networkmanager'
+  'polkit-qt6'
+  'python'
+  'python-distutils-extra'
+  'qt6-base'
+  'qt6-declarative'
+  'qt6-svg'
+  'rsync'
+  'solid'
+  'squashfs-tools'
+  'yaml-cpp'
+)
+makedepends=(
+  'boost'
+  'cmake'
+  'doxygen'
+  'extra-cmake-modules'
+  'git'
+  'ninja'
+  'python-jsonschema'
+  'python-pyaml'
+  'python-unidecode'
+  'qt6-tools'
+)
 
-source=($_pkgname::git+https://github.com/calamares/calamares#commit=$_commit
-	"calamares.desktop"
-	"calamares_polkit"
-	"49-nopasswd-calamares.rules")
+source=("${_pkgname}::git+https://github.com/calamares/calamares#commit=$_commit" \
+        "calamares.desktop" \
+        "calamares_polkit" \
+        "49-nopasswd-calamares.rules")
 
-sha256sums=('e06f8d5d185120ce3c02ea94137eb51e84a76bb8f5b09be7e9f6e9129c0f81af'
+sha256sums=('SKIP'
             'SKIP'
             'c176b28007bd1c1f23d8dbb2c936fa54d0c01bacfb67290ddad597606c129df3'
             '56d85ff6bf860b9559b8c9f997ad9b1002f3fccc782073760eca505e3bddd176')
@@ -66,6 +100,8 @@ pkgver() {
 prepare() {
 	cd ${srcdir}/calamares
 	sed -i -e 's/etc\/sddm.conf/etc\/sddm.conf.d\/kde_settings.conf/' src/modules/displaymanager/main.py
+  # Forzar crc32c genérico para Btrfs
+  sed -i 's/modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")/modules.append("crc32c")/g' src/modules/initcpiocfg/main.py
 }
 
 build() {
@@ -76,9 +112,8 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib \
-    -DBoost_NO_BOOST_CMAKE=ON \
+    -DWITH_PYBIND11=OFF \
     -DWITH_QT6=ON \
-    -DWITH_APPSTREAM=OFF \
     -DBUILD_TESTING=OFF \
     -DSKIP_MODULES="webview interactiveterminal initramfs \
                               initramfscfg packagechooser packagechooserq \

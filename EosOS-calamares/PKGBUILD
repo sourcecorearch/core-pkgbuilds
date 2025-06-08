@@ -6,13 +6,13 @@
 
 pkgname=calamares
 _pkgname=calamares
-pkgver=3.3.15.r26.g274996f7c8
+pkgver=3.3.14.r46.g21ea80352
 pkgrel=1
-_commit=274996f7c8
+_commit=21ea803
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 conflicts=('core-calamares')
-url="https://codeberg.org/Calamares/calamares"
+url="https://github.com/calamares/calamares"
 license=('GPL' 'LGPL')
 depends=(
   'boost-libs'
@@ -54,7 +54,7 @@ makedepends=(
   'qt6-tools'
 )
 
-source=("${_pkgname}::git+https://codeberg.org/Calamares/calamares.git#commit=$_commit" \
+source=("${_pkgname}::git+https://github.com/calamares/calamares#commit=$_commit" \
         "calamares.desktop" \
         "calamares_polkit" \
         "49-nopasswd-calamares.rules")
@@ -100,6 +100,8 @@ pkgver() {
 prepare() {
 	cd ${srcdir}/calamares
 	sed -i -e 's/etc\/sddm.conf/etc\/sddm.conf.d\/kde_settings.conf/' src/modules/displaymanager/main.py
+  # Forzar crc32c genérico para Btrfs
+  sed -i 's/modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")/modules.append("crc32c")/g' src/modules/initcpiocfg/main.py
 }
 
 build() {
@@ -110,10 +112,8 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=lib \
-    -DBoost_NO_BOOST_CMAKE=ON \
     -DWITH_PYBIND11=OFF \
     -DWITH_QT6=ON \
-    -DWITH_APPSTREAM=OFF \
     -DBUILD_TESTING=OFF \
     -DSKIP_MODULES="webview interactiveterminal initramfs \
                               initramfscfg packagechooser packagechooserq \
