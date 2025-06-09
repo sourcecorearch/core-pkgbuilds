@@ -67,6 +67,8 @@ sha256sums=('e06f8d5d185120ce3c02ea94137eb51e84a76bb8f5b09be7e9f6e9129c0f81af'
 prepare() {
 	cd ${srcdir}/calamares
 	sed -i -e 's/etc\/sddm.conf/etc\/sddm.conf.d\/kde_settings.conf/' src/modules/displaymanager/main.py
+  # Forzar crc32c genérico para Btrfs
+  sed -i 's/modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")/modules.append("crc32c")/g' src/modules/initcpiocfg/main.py
 
 	# change version
 	_ver="$(cat CMakeLists.txt | grep -m3 -e "  VERSION" | grep -o "[[:digit:]]*" | xargs | sed s'/ /./g')"
