@@ -5,10 +5,10 @@ pkgdesc="Base icons for EosOS Linux"
 pkgver=1.0
 pkgrel=1
 arch=('any')
-url="https://github.com/sourcecorearch/core-icons/$kgname"
+url="https://github.com/sourcecorearch/core-icons"
 license=('GPL')
 makedepends=('git')
-source=("git+$url.git")
+source=("$pkgname::git+$url.git")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -17,6 +17,7 @@ pkgver() {
 }
 
 package() {
-	install -d "$pkgdir"/usr
-	cp -rf "$srcdir"/$pkgname/usr "$pkgdir"
+	install -d "$pkgdir/usr"
+	cp -rf "$srcdir/$pkgname/usr" "$pkgdir"
 }
+
