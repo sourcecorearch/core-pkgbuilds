@@ -2,7 +2,7 @@
 
 pkgname=core-icons
 pkgdesc="Base icons for EosOS Linux"
-pkgver=1.0
+pkgver=r4.ed018bc
 pkgrel=1
 arch=('any')
 url="https://github.com/sourcecorearch/core-icons"
