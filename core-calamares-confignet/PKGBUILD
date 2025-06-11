@@ -2,8 +2,8 @@
 
 pkgname=core-calamares-confignet
 _destname1="/etc"
-pkgver=1.6
-pkgrel=04
+pkgver=1.7
+pkgrel=05
 pkgdesc="calamares config for archlinux plasma net"
 arch=('any')
 url="https://github.com/sourcecorearch"
