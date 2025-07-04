@@ -5,7 +5,6 @@
 # https://gitlab.manjaro.org/packages/extra/calamares-git/-/blob/master/PKGBUILD
 
 pkgname=calamares
-_pkgname=calamares
 pkgver=3.3.14.r46.g21ea803
 pkgrel=1
 _commit=21ea803
@@ -100,8 +99,8 @@ pkgver() {
 prepare() {
 	cd ${srcdir}/calamares
 	sed -i -e 's/etc\/sddm.conf/etc\/sddm.conf.d\/kde_settings.conf/' src/modules/displaymanager/main.py
-  # Forzar crc32c genérico para Btrfs
-  sed -i 's/modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")/modules.append("crc32c")/g' src/modules/initcpiocfg/main.py
+        # Forzar crc32c genérico para Btrfs
+        sed -i 's/modules.append("crc32c-intel" if cpuinfo().is_intel else "crc32c")/modules.append("crc32c")/g' src/modules/initcpiocfg/main.py
 }
 
 build() {
