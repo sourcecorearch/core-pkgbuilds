@@ -5,8 +5,8 @@
 # https://gitlab.manjaro.org/packages/extra/calamares-git/-/blob/master/PKGBUILD
 
 pkgname=calamares-eo
-pkgver=3.3.14.r1.gd101381a4
-_commit=d101381a4ee604933e7de670e31f9677f2e498fd
+pkgver=3.3.14.r1.g2c47357af
+_commit=2c47357afd3c16b07a10fba9b6499b81f29bff39
 pkgrel=2
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
