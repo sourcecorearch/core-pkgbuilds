@@ -3,8 +3,8 @@
 pkgname=core-calamares-confignet
 _destname1="/etc"
 pkgver=1.9
-pkgrel=09
-pkgdesc="calamares config for archlinux plasma net"
+pkgrel=10
+pkgdesc="calamares config for archlinux plasma and gnome net"
 arch=('any')
 url="https://github.com/sourcecorearch"
 license=('GPL3')
